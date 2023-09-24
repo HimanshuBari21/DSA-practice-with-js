@@ -1,24 +1,20 @@
-const zero2End = (inArr) => {
+// Put all the zeros to end
 
-    inArr = inArr.sort((a, b) => a - b)
+const zero2End = (inArr = [0]) => {
 
-    var arrOfZero = []
+    // get numbers of zeros
+    var numberOfZeros = 0;
+    inArr.forEach((x) => {
+        x === 0 ? numberOfZeros++ : null;
+    })
 
-    for (let i = 0; i < inArr.length; i++) {
-        if (inArr[i] === 0) {
-            arrOfZero.push(inArr[i])
-        }
-    }
+    // create an array of zeros having length of numberOfZeros
+    const zerosArray = Array(numberOfZeros).fill(0);
 
-    for (let i = 0; i < arrOfZero.length; i++) {
-        inArr.shift(i)
-    }
+    // removed all the zeros from array
+    inArr = inArr.filter((x) => x !== 0);
 
-    for (let i = 0; i < arrOfZero.length; i++) {
-        inArr.push(0)
-    }
-
-    console.log(inArr);
+    console.info([...inArr, ...zerosArray]);
 
 }
 
