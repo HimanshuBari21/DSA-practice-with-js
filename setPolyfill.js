@@ -2,7 +2,22 @@
 
 const duplicateRemover = (arr) => {
 
-    return arr.filter((item, index) => arr.indexOf(item) == index)
+    // const a = []
+
+    return arr.filter((item, index) => {
+
+        var firstIndex = arr.indexOf(item);
+        
+        var currentIndex = index;
+
+        // for debugging
+        // a.push({ item, firstIndex, currentIndex, isRepeated: firstIndex === currentIndex })
+        // if (arr.length === index + 1) {
+        //     console.table(a);
+        // }
+        
+        return currentIndex == firstIndex;
+    })
 
 }
 
